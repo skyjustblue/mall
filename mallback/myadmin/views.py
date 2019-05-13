@@ -28,6 +28,20 @@ import os
 from mallback import settings
 
 # 测试GitHub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # 登录
 class Login(APIView):
     def get(self,request):
