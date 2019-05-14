@@ -599,10 +599,8 @@ class Ceckil(models.Model):
     start_time=models.DateField()    #开始时间
     end_time=models.DateField()     #结束时间
     state=models.IntegerField()    #状态（1是0否）
-
     class Meta:
         db_table = 'ceckil'
-
 
 #秒杀活动表👍（对很多天的）
 class Ceckil_activity(models.Model):
@@ -611,10 +609,8 @@ class Ceckil_activity(models.Model):
     startTime=models.DateTimeField()    #开始时间
     endTime=models.DateTimeField()     #结束时间
     status=models.IntegerField()    #状态（1上线0下线）
-
     class Meta:
         db_table = 'ceckil_activity'
-
 
 #秒杀时间段表（对一天24小时的）
 class Quentum(models.Model):
@@ -623,7 +619,6 @@ class Quentum(models.Model):
     start_time=models.CharField(max_length=100)    #开始时间
     end_time=models.CharField(max_length=100)     #结束时间
     state=models.IntegerField()    # 状态（1启用0不启用）
-
     class Meta:
         db_table = 'quentum'
 
@@ -638,7 +633,6 @@ class Ceckil_goods(models.Model):
     ceckil_number=models.IntegerField()     #秒杀数量
     limitation_number=models.IntegerField()   #限购数量
     sort = models.IntegerField()    #排序
-
     class Meta:
         db_table = 'ceckil_goods'
 

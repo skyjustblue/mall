@@ -27,20 +27,6 @@ import os
 # 配置文件
 from mallback import settings
 
-# 测试GitHub
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # 登录
 class Login(APIView):

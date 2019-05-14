@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mallback',
     'myadmin',
+    'api',
         # 所有跨域问题是由server端来提供解决方案
     'corsheaders',  # pip3 install django-cors-headers
         # 异步处理任务

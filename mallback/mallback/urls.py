@@ -19,10 +19,13 @@ from django.urls import path,re_path,include
 from django.views.static import serve
 #导入配置文件的路径
 from mallback.settings import UPLOAD_ROOT
+from rest_framework.documentation import include_docs_urls
 
 urlpatterns = [
     # 显示图片
+    re_path(r'^docs/', include_docs_urls(title='API接口文档')),
+    path('',include('api.urls')),
     re_path("^upload/(?P<path>.*)$",serve,{'document_root':UPLOAD_ROOT}),
-    path('admin/', admin.site.urls),
-    path('myadmin/',include('myadmin.urls')),
+    # path('admin/', admin.site.urls),
+    # path('myadmin/',include('myadmin.urls')),
 ]
