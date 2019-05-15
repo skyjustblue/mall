@@ -105,32 +105,52 @@ class Product(BaseModel,models.Model):
     recommend = models.IntegerField(default=1)
     pic = models.CharField(max_length=255)
     lovenum = models.IntegerField(default=0)
-
+    special_detail_id = models.IntegerField() # 专题外键
     class Meta:
         db_table = "product"
 
 
-# #专题栏分类表
-# class Special_category(BaseModel,models.Model):
-#     id = models.AutoField(primary_key=True)
-#     name = models.CharField(max_length=255)
-#     img = models.CharField(max_length=255)
-#     recommend = models.IntegerField(default=0)
+#专题栏分类表
+class Special_cate(BaseModel,models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=255)
+    img = models.CharField(max_length=255)
+    recommend = models.IntegerField(default=0)
 
-#     class Meta:
-#         db_table = "special_category"
+    class Meta:
+        db_table = "special_cate"
+    # @property
+    # def info(self):
+    #     return '%s' % (self.name)
 
-#专题表
-class Speciallist(BaseModel,models.Model):
+# 专题详情
+class Special_detail(BaseModel,models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
     catename = models.CharField(max_length=100)
-    title = models.CharField(max_length=255)
-    lovenum = models.IntegerField(default=0)
-    pic = models.CharField(max_length=255)
+    content = models.CharField(max_length=6000)
+    price = models.IntegerField(default=0)  # 商品起价
+    recommend = models.IntegerField(default=1) #是否推荐
+    sort = models.IntegerField(default=1)   #排序权重
+    lovenum = models.IntegerField(default=0) # 收藏量
+    browser = models.IntegerField(default=0)    #浏览量
+    comment_num = models.IntegerField(default=0) # 评论量
+    share_num = models.IntegerField(default=0) # 转发量
+    s_cid = models.ForeignKey(Special_cate, to_field='id', on_delete='CASCADE', related_name='special_s_cid')
     class Meta:
-        db_table = "speciallist"
+        db_table = "special_detail"
 
+
+# 专题图片
+class Special_pic(BaseModel,models.Model):
+    id = models.AutoField(primary_key=True)
+    pic = models.CharField(max_length=255)
+    s_did = models.ForeignKey(Special_detail, verbose_name='A类', to_field='id', on_delete='CASCADE', related_name='special_s_did')
+    class Meta:
+        db_table = "special_pic"
+    # def to_dict(self):
+    #     dict = {'pic': self.pic}
+    #     return dict
 
 
 

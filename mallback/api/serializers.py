@@ -22,20 +22,36 @@ class Brand_copyModelSerializer(serializers.ModelSerializer):
         model = Brand_copy
         fields = ('id','name','logo','price')
 
-
-
 #获取商品
 class ProductModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = "__all__"
+        fields = ('id','name','title','price','pic')
 
-# 专题
-class SpeciallistModelSerializer(serializers.ModelSerializer):
+
+# 专题分类
+class Special_cateModelSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Speciallist
-        fields = "__all__"
-    
+        model = Special_cate
+        fields = ('id','name','img')
+
+# 专题详情
+class Special_detailModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Special_detail
+        fields = ('id','name','catename','price')
+
+# 专题详情 + 内容
+class Special_detailModelSerializer_2(serializers.ModelSerializer):
+    class Meta:
+        model = Special_detail
+        fields = ('id','name','catename','price','content','lovenum','browser','comment_num','share_num')
+
+# 专题图片
+class Special_picModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Special_pic
+        fields = ("pic",)
 
 # 首页秒杀列表
 class FlashProductModelSerializer(serializers.ModelSerializer):

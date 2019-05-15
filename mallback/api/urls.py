@@ -17,7 +17,11 @@ urlpatterns = [
     # 人气推荐 
     path('fetchLoveProduct',views.FetchLoveProduct.as_view()),
     # 专题推荐
+    path('fetchSpecialOne',views.FetchSpecialOne.as_view()),
+    # 更多推荐
     path('fetchSpecialList',views.FetchSpecialList.as_view()),
+    path('fetchSpecialCate',views.FetchSpecialCate.as_view()),
+    path('fetchSpecialDetail',views.FetchSpecialDetail.as_view()),
     # 猜你喜欢
     path('fetchLoveProduct',views.FetchLove.as_view()),
 ]
